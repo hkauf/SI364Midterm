@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+<ul>
+{% for place in locations %}
+    <li>{{ place[0] }} , {{ place[1] }} </li><br><br>
+{% endfor %}
+</ul>
+
+{% if not locations %}
+    There are no saved Locations to show.
+{% endif %}
+
+
+<div>
+{% for message in get_flashed_messages() %}
+    <strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

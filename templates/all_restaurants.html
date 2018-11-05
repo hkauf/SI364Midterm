@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content1 %}
+<ul>
+{% for rest in restaurants %}
+    <li>{{ rest[0] }}<br><i> Address: </i> {{ rest[1] }} {{ rest[2] }}, {{ rest[3] }} Price: {{ rest[4] }}</li><br><br>
+{% endfor %}
+</ul>
+
+{% if not restaurants %}
+    There are no saved Restaurants to show.
+{% endif %}
+
+
+<div>
+{% for message in get_flashed_messages() %}
+    <strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+{% endblock %}

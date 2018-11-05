@@ -1,0 +1,22 @@
+{% block content1 %}
+
+<header><strong> Opentable Form </strong></header>
+
+
+{% endblock %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+<div>
+	<h2>Navigation</h2>
+	<br>
+	<ul>
+		<li><a href= 'http://localhost:5000/restaurantnames'> Search restaurant names. </a></li>
+		<li><a href = 'http://localhost:5000/locate' > Search location of restaurants form. </a></li>
+		<li><a href = 'http://localhost:5000/allrestaurants' > See saved restaurants. </a></li>
+		<li><a href = 'http://localhost:5000/all_locations' > See saved locations. </a></li>
+	</ul>

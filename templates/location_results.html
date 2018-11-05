@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content1 %}
+
+<header> Restaurant Location and Price Range Results </header>
+<ul>
+	{% for restaurant in results %}
+		<li><strong>{{ restaurant[0] }}</strong> <br> Address: {{ restaurant[1] }}{{ restaurant[2] }}, {{ restaurant[3] }} <br> <br> <a href= '{{ restaurant[4] }}'> Reserve table here</a> {{ restaurant[5] }} </li><br>
+
+	{% endfor %}
+</ul>
+
+{% endblock %}

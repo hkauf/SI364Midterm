@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content1 %}
+
+<h1> Search Restaurant Name: </h1>
+
+<form action = "http://localhost:5000/nameresults" method= 'POST'>
+	{{ form.restaurant_name.label() }} {{ form.restaurant_name() }}
+	{{ form.submit() }}
+	{{ form.hidden_tag() }}
+</form>
+
+{% endblock %}

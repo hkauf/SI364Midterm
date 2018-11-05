@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content1 %}
+
+<h1> Search Restaurant Location and Price Range: </h1>
+
+<form action = "http://localhost:5000/locateresults" method= 'POST'>
+	{{ form.city.label() }} {{ form.city() }}
+	{{ form.state.label() }} {{ form.state() }} <br>
+	{{ form.pricerange.label() }} {{ form.pricerange() }} <br> <br>
+	{{ form.submit() }}
+	{{ form.hidden_tag() }}
+</form>
+
+
+{% endblock %}
