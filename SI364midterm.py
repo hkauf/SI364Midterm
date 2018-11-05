@@ -134,14 +134,10 @@ def restaurantnames_results():
 
     return redirect(url_for('restaurantnames'))
 
-@app.route('/locate')
+@app.route('/locate', methods =['GET', 'POST'])
 def locate_search():
     form= LocationForm()
-    return render_template('LocationForm.html', form=form)
-
-@app.route('/locateresults', methods = ['POST'])
-def location_results():
-    form = LocationForm()
+    results = None
     if request.method == 'POST' and form.validate_on_submit():
         city = form.city.data
         state= form.state.data
@@ -168,11 +164,14 @@ def location_results():
                 db.session.add(location)
                 db.session.commit()
             results.append((restaurant.restaurant_name, restaurant.address, restaurant.city, restaurant.state, restaurant.reserverurl, restaurant.pricerange))
-        return render_template('location_results.html', form= form, results= results)
+        return render_template('LocationForm.html', form= form, results= results)
+    return render_template('LocationForm.html', form=form)
+
+
     # errors = [v for v in form.errors.values()]
     # if len(errors) > 0:
     #     flash("!!!! ERRORS IN FORM SUBMISSION - " + str(errors))
-    return redirect(url_for('locate_search'))
+
 
 @app.route('/allrestaurants')
 def see_restaurants():

@@ -3,7 +3,7 @@
 
 <h1> Search Restaurant Location and Price Range: </h1>
 
-<form action = "http://localhost:5000/locateresults" method= 'POST'>
+<form action = "http://localhost:5000/locate" method= 'POST'>
 	{{ form.city.label() }} {{ form.city() }}
 	{{ form.state.label() }} {{ form.state() }} <br>
 	{{ form.pricerange.label() }} {{ form.pricerange() }} <br> <br>
@@ -11,5 +11,14 @@
 	{{ form.hidden_tag() }}
 </form>
 
+
+<hr>
+<h1> Restaurant Location and Price Range Results </h1>
+<ul>
+	{% for restaurant in results %}
+		<li><strong>{{ restaurant[0] }}</strong> <br> Address: {{ restaurant[1] }}{{ restaurant[2] }}, {{ restaurant[3] }} <br> <br> <a href= '{{ restaurant[4] }}'> Reserve table here</a> {{ restaurant[5] }} </li><br>
+
+	{% endfor %}
+</ul>
 
 {% endblock %}
